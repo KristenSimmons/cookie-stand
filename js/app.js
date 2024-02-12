@@ -75,18 +75,18 @@ function randomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-let container = document.getElementById('root');
+const container = document.getElementById('root');
 
 function render(store) {
 
-  let cookieStandArticle = document.createElement('article');
+  const cookieStandArticle = document.createElement('article');
   container.appendChild(cookieStandArticle);
 
-  let heading = document.createElement('h2');
+  const heading = document.createElement('h2');
   cookieStandArticle.appendChild(heading);
   heading.textContent = store.location;
 
-  let hoursList = document.createElement('ul');
+  const hoursList = document.createElement('ul');
   cookieStandArticle.appendChild(hoursList);
 
   let totalSold = 0;
