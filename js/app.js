@@ -1,86 +1,34 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-<<<<<<< HEAD
-// const containerElem = document.getElementById('salesData');
-// const tableElem = document.createElement('table');
-// containerElem.appendChild(tableElem);
-const tableElem = document.getElementById('sales-table');
-
 let grandTotal = 0;
-=======
 
-const seattle = {
-  location: 'Seattle',
-  minCustomers: 23,
-  maxCustomers: 65,
-  avgCookiesPerSale: 6.3,
-  sales: [],
-  estimate: function() {
-    this.sales = estimateSales(this);
-  },
-};
->>>>>>> e5282f5a6e2ca9c7db7d38413d93e4273ee0b5e1
+function randomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-const tokyo = {
-  location: 'Tokyo',
-  minCustomers: 3,
-  maxCustomers: 24,
-  avgCookiesPerSale: 1.2,
-  sales: [],
-  estimate: function() {
-    this.sales = estimateSales(this);
-  },
-};
+function CookieStand(location,minCustomer,maxCustomer,avgCookiesPerSale) {
+  this.location = location;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgCookiesPerSale = avgCookiesPerSale;
+  this.sales = this.estimateSales();
+  this.dailyTotalSum = 0;
+}
 
-const dubai = {
-  location: 'Dubai',
-  minCustomers: 11,
-  maxCustomers: 38,
-  avgCookiesPerSale: 3.7,
-  sales: [],
-  estimate: function() {
-    this.sales = estimateSales(this);
-  },
-};
-
-const paris = {
-  location: 'Paris',
-  minCustomers: 20,
-  maxCustomers: 38,
-  avgCookiesPerSale: 2.3,
-  sales: [],
-  estimate: function() {
-    this.sales = estimateSales(this);
-  },
-};
-
-const lima = {
-  location: 'Lima',
-  minCustomers: 2,
-  maxCustomers: 16,
-  avgCookiesPerSale: 4.6,
-  sales: [],
-  estimate: function() {
-    this.sales = estimateSales(this);
-  },
-};
-
-seattle.estimate();
-tokyo.estimate();
-dubai.estimate();
-paris.estimate();
-lima.estimate();
-
-function estimateSales(store) {
+CookieStand.prototype.estimateSales = function() {
   const sales = [];
   for(let i=0; i<hours.length; i++) {
-    const numCustomers = randomInRange(store.minCustomers, store.maxCustomers);
-    const hourSales = Math.ceil(numCustomers * store.avgCookiesPerSale);
+    const numCustomers = randomInRange(this.minCustomer,this.maxCustomer);
+    const hourSales = Math.ceil(numCustomers * this.avgCookiesPerSale);
     sales.push(hourSales);
   }
   return sales;
-<<<<<<< HEAD
 };
+
+const containerElem = document.getElementById('salesData');
+const tableElem = document.createElement('table');
+containerElem.appendChild(tableElem);
+tableElem.className = 'sales-table';
 
 function renderTable (){
   renderHeaderRow(tableElem);
@@ -113,7 +61,7 @@ function renderHeaderRow(tableElem){
     currentHeaderCell.textContent = currentHour;
   }
   const totalCell = document.createElement('td');
-  row.appendChild(totalCell);
+  row.appendChild.apply(totalCell);
   totalCell.textContent = 'Location Totals';
 }
 
@@ -137,7 +85,7 @@ CookieStand.prototype.render = function() {
   totalDailyCell.textContent = this.dailyTotalSum;
 };
 
-const headerRow = document.createElement('tr');
+const headerRow = document.create('tr');
 tableElem.appendChild(headerRow);
 
 function renderFooterRow(tableElem){
@@ -162,8 +110,4 @@ function renderFooterRow(tableElem){
 }
 
 console.log(grandTotal);
-
 renderTable();
-=======
-}
->>>>>>> e5282f5a6e2ca9c7db7d38413d93e4273ee0b5e1
