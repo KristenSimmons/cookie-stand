@@ -25,10 +25,10 @@ CookieStand.prototype.estimateSales = function() {
   return sales;
 };
 
-const containerElem = document.getElementById('salesData');
-const tableElem = document.createElement('table');
-containerElem.appendChild(tableElem);
-tableElem.className = 'sales-table';
+const tableElem = document.getElementById('sales-table');
+// const tableElem = document.createElement('table');
+// tableElem.appendChild(containerElem);
+// tableElem.className = 'sales-table';
 
 function renderTable (){
   renderHeaderRow(tableElem);
@@ -49,19 +49,19 @@ const lima =  new CookieStand('Lima', 2, 16, 4.6);
 const cities = [seattle,tokyo,dubai,paris,lima];
 
 function renderHeaderRow(tableElem){
-  const row = document.createElement('tr');
-  tableElem.appendChild(row);
+  // const row = document.createElement('tr');
   const cell = document.createElement('th');
-  row.appendChild(cell);
   cell.textContent = 'Locations';
+  headerRow.appendChild(cell);
   for(let i=0; i<hours.length; i++) {
     const currentHour = hours[i];
     const currentHeaderCell = document.createElement('th');
     headerRow.appendChild(currentHeaderCell);
     currentHeaderCell.textContent = currentHour;
   }
+  tableElem.appendChild(headerRow);
   const totalCell = document.createElement('td');
-  row.appendChild.apply(totalCell);
+  headerRow.appendChild(totalCell);
   totalCell.textContent = 'Location Totals';
 }
 
@@ -81,11 +81,11 @@ CookieStand.prototype.render = function() {
     grandTotal += this.sales[i];
   }
   const totalDailyCell = document.createElement('td');
-  row.appendChild(totalDailyCell)
+  row.appendChild(totalDailyCell);
   totalDailyCell.textContent = this.dailyTotalSum;
 };
 
-const headerRow = document.create('tr');
+const headerRow = document.createElement('tr');
 tableElem.appendChild(headerRow);
 
 function renderFooterRow(tableElem){
@@ -102,7 +102,7 @@ function renderFooterRow(tableElem){
     for (let k=0; k<cities.length; k++){
       hourlyTotals += cities[k].sales[i];
     }
-    totalCell.textContent=  hourlyTotals;
+    totalCell.textContent= hourlyTotals;
   }
   const salesForAllLocations = document.createElement('td');
   row.appendChild(salesForAllLocations);
