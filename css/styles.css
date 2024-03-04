@@ -39,8 +39,9 @@ header nav ul li {
   border-bottom: 1px solid #111;
 }
 
-.content {
-  margin: 3em;
+.info {
+  margin: 5%;
+  padding: 4em;
 }
 
 .location {
@@ -68,4 +69,18 @@ footer {
   background: #ccc;
   padding: 3em;
   text-align: center;
+}
+
+table, tr, td, th {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-collapse: collapse;
+  border: 1px solid;
+  border-color: black;
+  padding: 5px;
+}
+
+
+td {
+  font-weight: bold;
 }
