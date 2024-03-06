@@ -40,8 +40,13 @@ header nav ul li {
 }
 
 .info {
-  margin: 5%;
-  padding: 4em;
+  margin: 3%;
+  padding: 3em;
+}
+
+.info h2 {
+  margin-top: 3%;
+  text-decoration: underline;
 }
 
 .location {
