@@ -111,3 +111,10 @@ function renderFooterRow(tableElem){
 
 console.log(grandTotal);
 renderTable();
+
+const form = document.getElementById('addNewStore');
+
+function handleSubmit(){
+}
+
+form.addEventListener('submit', handleSubmit);
