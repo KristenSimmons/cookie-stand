@@ -114,9 +114,11 @@ renderTable();
 
 const form = document.getElementById('addNewStore');
 
-function handleSubmit() {
-  preventDefault();
-  console.log(event);
+function handleSubmit(event) {
+  event.preventDefault();
+  const newData = event.target.newLocation.value;
+  console.log(newData);
+  event.target.reset();
 }
 
 form.addEventListener('submit', handleSubmit);
