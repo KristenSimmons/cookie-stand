@@ -4,6 +4,7 @@
 
 header {
   background: #111;
+  color: salmon
 }
 
 header h1 {
@@ -88,4 +89,33 @@ table, tr, td, th {
 
 td {
   font-weight: bold;
+}
+
+table{
+  border: 4px;
+}
+
+.NewStore h2 {
+  text-align: center;
+  padding-top: 5ex;
+}
+
+legend{
+  font-family: 'Righteous', sans-serif;
+  color: salmon;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+label{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 5px;
+}
+
+fieldset{
+  margin: 30px;
+}
+
+button {
+  align-items: center;
 }
