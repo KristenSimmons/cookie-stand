@@ -95,23 +95,26 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    // Retrieve input values from the form
     const newLocation = document.getElementById('newLocation').value;
-    const newMinCust = document.getElementById('newMinCust').value;
-    const newMaxCust = document.getElementById('newMaxCust').value;
-    const newAvg = document.getElementById('newAvg').value;
+    const newMinCust = parseInt(document.getElementById('newMinCust').value);
+    const newMaxCust = parseInt(document.getElementById('newMaxCust').value);
+    const newAvg = parseFloat(document.getElementById('newAvg').value);
 
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-      <td>${newLocation}</td>
-      <td>${newMinCust}</td>
-      <td>${newMaxCust}</td>
-      <td>${newAvg}</td>
-    `;
+    // Create a new instance of CookieStand
+    const newCookieStand = new CookieStand(newLocation, newMinCust, newMaxCust, newAvg);
 
-    tableBody.appendChild(newRow);
+    // Render the new row
+    newCookieStand.render();
+
+    // Append the new row to the table body
+    tableBody.appendChild(newCookieStand.rowElement);
+
+    // Reset the form
     form.reset();
   });
 });
+
 
 function renderFooterRow(tableElem){
   const row = document.createElement('tfoot');
