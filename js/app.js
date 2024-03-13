@@ -88,40 +88,28 @@ CookieStand.prototype.render = function() {
   totalDailyCell.textContent = this.dailyTotalSum;
 };
 
-const newForm = document.getElementById('addNewStore');
-function handleSubmit(event) {
-  event.preventDefault();
-  event.target.reset();
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('addNewStore');
+  const tableBody = document.querySelector('sales-table');
 
-newForm.addEventListener('submit', handleSubmit,
-  function (event) {
+  form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const newLocation = event.target.newLocation.value;
-    const newMinCust = parseInt(event.target.newMinCust.value);
-    const newMaxCust = parseInt(event.target.newMaxCust.value);
-    const newAvg = parseInt(event.target.newAvg.value);
 
-    const newData = newData(newLocation, newMinCust, newMaxCust,newAvg);
-    console.log(newLocation);
-    newData.estimateSales();
-    newForm.reset();
-    newData.render();
-    cities.push(newData);
-    renderNewRow();
-    document.getElementById('footerRowTotal').remove();
-    renderFooterRow(tableElem);
-  });
+    const newLocation = document.getElementById('newLocation').value;
+    const newMinCust = document.getElementById('newMinCust').value;
+    const newMaxCust = document.getElementById('newMaxCust').value;
+    const newAvg = document.getElementById('newAvg').value;
 
-function renderNewRow(){
-  let tnew=document.querySelector('tnew');
-  if(tnew){
-    tnew.innerHTML = "";
-  } else {
-  tnew = document.createElement('new');
-  tableElem.appendChild(tnew);
-  }
-}
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>${newLocation}</td>
+      <td>${newMinCust}</td>
+      <td>${newMaxCust}</td>
+      <td>${newAvg}</td>
+
+    tableBody.appendChild(newRow);
+    form.reset();
+
 
 function renderFooterRow(tableElem){
   const row = document.createElement('tfoot');
@@ -146,3 +134,4 @@ function renderFooterRow(tableElem){
 
 renderTable();
 console.log(grandTotal);
+
