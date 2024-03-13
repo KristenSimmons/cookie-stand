@@ -90,7 +90,7 @@ CookieStand.prototype.render = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('addNewStore');
-  const tableBody = document.querySelector('sales-table');
+  const tableBody = document.getElementById('sales-table').querySelector('tbody');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -106,10 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>${newMinCust}</td>
       <td>${newMaxCust}</td>
       <td>${newAvg}</td>
+    `;
 
     tableBody.appendChild(newRow);
     form.reset();
-
+  });
+});
 
 function renderFooterRow(tableElem){
   const row = document.createElement('tfoot');
