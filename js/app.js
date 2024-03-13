@@ -134,4 +134,3 @@ function renderFooterRow(tableElem){
 
 renderTable();
 console.log(grandTotal);
-
