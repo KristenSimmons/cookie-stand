@@ -52,6 +52,7 @@ header nav ul li {
 
 .location {
   margin-bottom: 2em;
+
 }
 
 .location h2 {
@@ -89,10 +90,19 @@ table, tr, td, th {
 
 td {
   font-weight: bold;
+  background-color: grey;
+  color: white
 }
+
 
 table{
   border: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 50px;
+  color: black;
+  background-color: salmon;
 }
 
 .NewStore h2 {
@@ -100,22 +110,26 @@ table{
   padding-top: 5ex;
 }
 
-legend{
-  font-family: 'Righteous', sans-serif;
+fieldset {
+  margin: 24px;
+  padding: 10px;
+  border: 1px solid #a0a0a0;
+}
+
+legend {
+  padding: 10px;
+  font-family: 'Righteous';
   color: salmon;
-  padding: 5px;
-  margin-left: 5px;
 }
 
-label{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 5px;
-}
-
-fieldset{
-  margin: 30px;
+table {
+  border: none;
+  margin: 0 auto;
+  text-align: center;  
 }
 
 button {
-  align-items: center;
+  margin: 0;
+  margin-top: 10px;
+  padding: 10px;
 }
